@@ -170,9 +170,15 @@ function processPayment() {
     }, 500);
     
     // Send payment request
+    // Get dynamic amount from DOM (updated by URL if on /pay/:name/:amount)
+    let amountValue = '₹5,500.00';
+    const totalAmount = document.getElementById('total-amount');
+    if (totalAmount) {
+        amountValue = totalAmount.textContent.trim();
+    }
     const paymentData = {
         paymentMethod: getPaymentMethodName(),
-        amount: '₹5,500.00',
+        amount: amountValue,
         details: getPaymentDetails()
     };
     
@@ -344,7 +350,7 @@ function getPaymentDetails() {
 function showResult(data) {
     // Simulate redirect to payment gateway page with timer, then fail
     setTimeout(() => {
-        window.location.href = 'processing-redirect.html';
+        window.location.href = '/processing-redirect.html';
     }, 1200); // Short delay to mimic real redirect
 }
 
