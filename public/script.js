@@ -15,11 +15,38 @@ const retryButton = document.getElementById('retry-button');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
+    // If on /pay/:name/:amount, update product and amount fields
+    updateProductAndAmountFromURL();
     initializePaymentMethods();
     initializePaymentOptions();
     initializePayButton();
     formatCardInputs();
 });
+
+function updateProductAndAmountFromURL() {
+    // Match /pay/:name/:amount
+    const match = window.location.pathname.match(/^\/pay\/([^/]+)\/([^/]+)/);
+    if (match) {
+        const name = decodeURIComponent(match[1]);
+        const amount = decodeURIComponent(match[2]);
+        // Update product name
+        const productName = document.getElementById('product-name');
+        if (productName) productName.textContent = name;
+        // Update total amount
+        const totalAmount = document.getElementById('total-amount');
+        if (totalAmount) totalAmount.textContent = `₹${amount}`;
+        // Update pay button text
+        const payBtnText = document.getElementById('pay-btn-text');
+        if (payBtnText) payBtnText.textContent = `Pay ₹${amount}`;
+
+        // Show a visible banner at the top of the payment card
+        const urlBanner = document.getElementById('url-banner');
+        if (urlBanner) {
+            urlBanner.style.display = 'block';
+              urlBanner.innerHTML = `Payment initiated for: <b>${name}</b> &mdash; Amount: <b>₹${amount}</b>`;
+        }
+    }
+}
 
 // Payment Method Switching
 function initializePaymentMethods() {

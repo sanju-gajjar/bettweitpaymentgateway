@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Payment Gateway - Demo</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
         <div class="payment-card">
+            <!-- Dynamic Banner for URL Data -->
+            <div id="url-banner" style="display:none; background: #e3f2fd; color: #1565c0; padding: 10px 20px; text-align: center; font-weight: 600; font-size: 15px; border-bottom: 1px solid #90caf9;"></div>
             <!-- Header -->
             <div class="header">
                 <div class="logo-section">
@@ -26,7 +28,7 @@
                 <h2>Order Summary</h2>
                 <div class="summary-row">
                     <span>Product/Service</span>
-                    <span>Beta Server - 1 Year Subscription</span>
+                    <span id="product-name">Beta Server - 1 Year Subscription</span>
                 </div>
                 <div class="summary-row server-specs">
                     <span style="font-size: 12px; color: #888;">500GB SSD • 2GB RAM • 2 Core CPU</span>
@@ -49,7 +51,7 @@
                 </div>
                 <div class="summary-row total">
                     <span>Total Amount</span>
-                    <span class="amount">₹5,500.00</span>
+                    <span class="amount" id="total-amount">₹5,500.00</span>
                 </div>
             </div>
 
@@ -189,7 +191,7 @@
 
             <!-- Payment Button -->
             <button class="pay-button" id="pay-button">
-                <span class="button-text">Pay ₹5,500.00</span>
+                <span class="button-text" id="pay-btn-text">Pay ₹5,500.00</span>
                 <span class="button-loader" style="display: none;">Processing...</span>
             </button>
 
@@ -256,6 +258,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
