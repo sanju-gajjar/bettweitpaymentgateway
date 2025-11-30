@@ -1,0 +1,16 @@
+{
+  "name": "payment-gateway-demo",
+  "version": "1.0.0",
+  "description": "Payment Gateway Simulation Demo for Client",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["payment", "gateway", "demo", "simulation"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

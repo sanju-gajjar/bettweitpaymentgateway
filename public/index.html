@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Gateway - Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="payment-card">
+            <!-- Header -->
+            <div class="header">
+                <div class="logo-section">
+                    <div class="logo">🔒 Better IT Solution</div>
+                    <div class="powered-by">Powered by Render.com</div>
+                </div>
+                <div class="secure-badge">
+                    <span class="lock-icon">🔐</span>
+                    <span>256-bit SSL Secured</span>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Product/Service</span>
+                    <span>Beta Server - 1 Year Subscription</span>
+                </div>
+                <div class="summary-row server-specs">
+                    <span style="font-size: 12px; color: #888;">500GB SSD • 2GB RAM • 2 Core CPU</span>
+                </div>
+                <div class="summary-row">
+                    <span>Base Price</span>
+                    <span>₹3,500.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Server Maintenance (Annual)</span>
+                    <span>₹800.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Setup & Configuration</span>
+                    <span>₹700.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (18%)</span>
+                    <span>₹500.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Amount</span>
+                    <span class="amount">₹5,500.00</span>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h3>Select Payment Method</h3>
+                <div class="method-tabs">
+                    <button class="method-tab active" data-method="upi">
+                        <span class="tab-icon">📱</span>
+                        <span>UPI</span>
+                    </button>
+                    <button class="method-tab" data-method="card">
+                        <span class="tab-icon">💳</span>
+                        <span>Card</span>
+                    </button>
+                    <button class="method-tab" data-method="netbanking">
+                        <span class="tab-icon">🏦</span>
+                        <span>Net Banking</span>
+                    </button>
+                    <button class="method-tab" data-method="wallet">
+                        <span class="tab-icon">👛</span>
+                        <span>Wallet</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Payment Forms -->
+            <div class="payment-forms">
+                <!-- UPI Form -->
+                <div class="payment-form active" id="upi-form">
+                    <h4>Pay using UPI</h4>
+                    <div class="form-group">
+                        <label for="upi-id">Enter UPI ID</label>
+                        <input type="text" id="upi-id" placeholder="yourname@upi" class="form-input">
+                        <small class="form-hint">Example: 9876543210@paytm, user@okaxis</small>
+                    </div>
+                    <div class="upi-apps">
+                        <span class="upi-label">Quick Pay:</span>
+                        <button class="upi-app" data-app="gpay">Google Pay</button>
+                        <button class="upi-app" data-app="paytm">Paytm</button>
+                        <button class="upi-app" data-app="phonepe">PhonePe</button>
+                        <button class="upi-app" data-app="bhim">BHIM</button>
+                    </div>
+                </div>
+
+                <!-- Card Form -->
+                <div class="payment-form" id="card-form">
+                    <h4>Card Details</h4>
+                    <div class="card-type-selector">
+                        <label>
+                            <input type="radio" name="card-type" value="credit" checked>
+                            <span>Credit Card</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="card-type" value="debit">
+                            <span>Debit Card</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-name">Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="Name on Card" class="form-input">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvv">CVV</label>
+                            <input type="password" id="card-cvv" placeholder="123" maxlength="3" class="form-input">
+                        </div>
+                    </div>
+                    <div class="card-logos">
+                        <span>💳 Visa</span>
+                        <span>💳 Mastercard</span>
+                        <span>💳 RuPay</span>
+                        <span>💳 Amex</span>
+                    </div>
+                </div>
+
+                <!-- Net Banking Form -->
+                <div class="payment-form" id="netbanking-form">
+                    <h4>Select Your Bank</h4>
+                    <div class="bank-grid">
+                        <button class="bank-button" data-bank="SBI">State Bank of India</button>
+                        <button class="bank-button" data-bank="HDFC">HDFC Bank</button>
+                        <button class="bank-button" data-bank="ICICI">ICICI Bank</button>
+                        <button class="bank-button" data-bank="Axis">Axis Bank</button>
+                        <button class="bank-button" data-bank="Kotak">Kotak Mahindra</button>
+                        <button class="bank-button" data-bank="PNB">Punjab National Bank</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="other-bank">Other Banks</label>
+                        <select id="other-bank" class="form-input">
+                            <option value="">Select your bank</option>
+                            <option value="BOB">Bank of Baroda</option>
+                            <option value="Canara">Canara Bank</option>
+                            <option value="BOI">Bank of India</option>
+                            <option value="Union">Union Bank of India</option>
+                            <option value="IDBI">IDBI Bank</option>
+                            <option value="Yes">Yes Bank</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Wallet Form -->
+                <div class="payment-form" id="wallet-form">
+                    <h4>Select Wallet</h4>
+                    <div class="wallet-options">
+                        <button class="wallet-button" data-wallet="Paytm">
+                            <span class="wallet-icon">📱</span>
+                            <span>Paytm Wallet</span>
+                        </button>
+                        <button class="wallet-button" data-wallet="PhonePe">
+                            <span class="wallet-icon">📲</span>
+                            <span>PhonePe Wallet</span>
+                        </button>
+                        <button class="wallet-button" data-wallet="Mobikwik">
+                            <span class="wallet-icon">💰</span>
+                            <span>Mobikwik</span>
+                        </button>
+                        <button class="wallet-button" data-wallet="Freecharge">
+                            <span class="wallet-icon">⚡</span>
+                            <span>Freecharge</span>
+                        </button>
+                        <button class="wallet-button" data-wallet="Amazon Pay">
+                            <span class="wallet-icon">🛒</span>
+                            <span>Amazon Pay</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Button -->
+            <button class="pay-button" id="pay-button">
+                <span class="button-text">Pay ₹5,500.00</span>
+                <span class="button-loader" style="display: none;">Processing...</span>
+            </button>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <span>🔒 PCI DSS Compliant</span>
+                <span>✓ 100% Secure</span>
+                <span>🛡️ Protected by SSL</span>
+            </div>
+        </div>
+
+        <!-- Processing Overlay -->
+        <div class="processing-overlay" id="processing-overlay" style="display: none;">
+            <div class="processing-card">
+                <div class="spinner"></div>
+                <h3>Processing Payment</h3>
+                <p>Please do not close this window or press back button</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Modal -->
+        <div class="result-modal" id="result-modal" style="display: none;">
+            <div class="result-card">
+                <div class="result-icon error">❌</div>
+                <h3 id="result-title">Payment Failed</h3>
+                <p id="result-message"></p>
+                <button class="retry-button" id="retry-button">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Better IT Solution</h4>
+                <p>Your trusted partner for enterprise server solutions</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📧 support@betteritsolution.com</p>
+                <p>📞 +1 (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h4>Address</h4>
+                <p>123 Tech Boulevard, Suite 400</p>
+                <p>San Francisco, CA 94105</p>
+                <p>United States</p>
+            </div>
+            <div class="footer-section">
+                <h4>Powered By</h4>
+                <p>🚀 Render.com</p>
+                <p>Cloud infrastructure you'll love</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Better IT Solution. All rights reserved.</p>
+            <p class="footer-links">
+                Privacy Policy • Terms of Service • Refund Policy
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

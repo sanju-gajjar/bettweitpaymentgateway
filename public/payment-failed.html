@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - Better IT Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .fail-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .fail-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 36px 24px;
+            max-width: 380px;
+            width: 95vw;
+            text-align: center;
+        }
+        .fail-icon {
+            font-size: 54px;
+            color: #d32f2f;
+            margin-bottom: 18px;
+        }
+        .fail-title {
+            font-size: 22px;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+        .fail-message {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 18px;
+        }
+        .fail-detail {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 22px;
+        }
+        .fail-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+        .fail-btn:hover {
+            opacity: 0.9;
+        }
+        .fail-footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="fail-container">
+        <div class="fail-card">
+            <div class="fail-icon">❌</div>
+            <div class="fail-title">Payment Failed</div>
+            <div class="fail-message">We could not process your payment at this time.</div>
+            <div class="fail-detail">No amount has been deducted from your account.<br>
+            This appears to be a server-side issue.<br>
+            Please try again after some time or contact us for offline payment options.</div>
+            <button class="fail-btn" onclick="window.location.href='/'">Back to Payment</button>
+        </div>
+        <div class="fail-footer">
+            &copy; 2025 Better IT Solution. Powered by Render.com
+        </div>
+    </div>
+</body>
+</html>

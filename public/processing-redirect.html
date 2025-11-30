@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Payment - Better IT Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .redirect-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .redirect-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 36px 24px;
+            max-width: 380px;
+            width: 95vw;
+            text-align: center;
+        }
+        .redirect-icon {
+            font-size: 54px;
+            color: #2a5298;
+            margin-bottom: 18px;
+        }
+        .redirect-title {
+            font-size: 22px;
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+        .redirect-message {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 18px;
+        }
+        .redirect-timer {
+            font-size: 18px;
+            color: #d32f2f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .redirect-gateways {
+            margin: 18px 0 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gateway-badge {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #2a5298;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .redirect-footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="redirect-card">
+            <div class="redirect-icon">🔄</div>
+            <div class="redirect-title">Redirecting to Payment Gateway</div>
+            <div class="redirect-message">Please wait while we process your payment.<br>Do not refresh or close this window.</div>
+            <div class="redirect-timer" id="redirect-timer">01:00</div>
+            <div class="redirect-gateways">
+                <span class="gateway-badge">Visa</span>
+                <span class="gateway-badge">Mastercard</span>
+                <span class="gateway-badge">RuPay</span>
+                <span class="gateway-badge">UPI</span>
+                <span class="gateway-badge">NetBanking</span>
+                <span class="gateway-badge">Paytm</span>
+                <span class="gateway-badge">PhonePe</span>
+                <span class="gateway-badge">Amex</span>
+            </div>
+        </div>
+        <div class="redirect-footer">
+            &copy; 2025 Better IT Solution. Powered by Render.com
+        </div>
+    </div>
+    <script>
+        // 1 minute countdown
+        let seconds = 60;
+        const timerEl = document.getElementById('redirect-timer');
+        function updateTimer() {
+            let min = String(Math.floor(seconds / 60)).padStart(2, '0');
+            let sec = String(seconds % 60).padStart(2, '0');
+            timerEl.textContent = `${min}:${sec}`;
+        }
+        updateTimer();
+        const interval = setInterval(() => {
+            seconds--;
+            updateTimer();
+            if (seconds <= 0) {
+                clearInterval(interval);
+                window.location.href = 'payment-failed.html';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
